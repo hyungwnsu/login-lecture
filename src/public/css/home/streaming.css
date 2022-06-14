@@ -82,7 +82,7 @@ main{
   overflow: auto;
   background-color: #000;
   padding-top: 70px;
-  height: 1500px;
+  height: 1100px;
 }
 main::-webkit-scrollbar {
   display:none;
@@ -91,17 +91,23 @@ video {
   width: 1610px;
 }
 @media (max-width: 1600px) {
+  main{
+    height: 850px;
+  }
   main video{
     width: 1225px;
   }
   main #chat{
     height: 450px;
   }
+  main #chat-container{
+    margin-top: 80px;
+  }
   main #test{
     height: 110px;
   }
   main #btn{
-    height: 40px;
+    height: 30px;
   }
 }
 /* 채팅 영역 */
@@ -157,7 +163,7 @@ border-radius: 5px;
 /* 메인 */
 #chat-container {
 margin: auto;
-margin-top: 105px;
+margin-top: 110px;
 float: right;
 padding-top: 10px;
 text-align: center;
