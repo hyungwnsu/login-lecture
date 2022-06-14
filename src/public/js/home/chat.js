@@ -71,3 +71,15 @@ function send() {
   socket.emit('message', {type: 'message', message: message})
 }
 
+loginBtn.addEventListener("click", () => {
+ localStorage.removeItem("id");
+})
+ // 로그인 확인용
+window.addEventListener("load", function(event) {
+ const id = this.localStorage.getItem("id");
+ if(id) {
+	loginBtn.innerText = "로그아웃";
+ } else {
+	loginBtn.innerText = "로그인";
+}
+});

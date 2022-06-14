@@ -64,7 +64,7 @@ io.sockets.on('connection', function(socket) {
 
     /* 모든 소켓에게 전송 */
     io.sockets.emit('update', {type: 'connect', name: '', message: name + '님이 접속하였습니다.'})
-    
+
     //    io.sockets.emit('update', {type: 'connect', name: 'SERVER', message: name + '님이 접속하였습니다.'})
 
   })
@@ -72,7 +72,7 @@ io.sockets.on('connection', function(socket) {
   /* 전송한 메시지 받기 */
   socket.on('message', function(data) {
     /* 받은 데이터에 누가 보냈는지 이름을 추가 */
-    data.name = socket.name
+    data.name = socket.name + ' : '
     
     console.log(data)
 
@@ -85,12 +85,9 @@ io.sockets.on('connection', function(socket) {
     console.log(socket.name + '님이 나가셨습니다.')
 
     /* 나가는 사람을 제외한 나머지 유저에게 메시지 전송 */
-    socket.broadcast.emit('update', {type: 'disconnect', name: '실시간 채팅', message: socket.name + '님이 나가셨습니다.'});
+    socket.broadcast.emit('update', {type: 'disconnect', name: '', message: socket.name + '님이 나가셨습니다.'});
   })
 })
-
-
-
 
 //서버를 8080 포트로 listen 
 server.listen(3050, function() {
