@@ -1,7 +1,8 @@
-"use strict";
+ "use strict";
 
 
 var socket = io();
+let loginBtn = document.querySelector('secondary_navigation a');
 
 
 /* 접속 되었을 때 실행 */
@@ -73,13 +74,16 @@ function send() {
 
 loginBtn.addEventListener("click", () => {
  localStorage.removeItem("id");
-})
+});
+
+
  // 로그인 확인용
 window.addEventListener("load", function(event) {
- const id = this.localStorage.getItem("id");
+ const id = localStorage.getItem("id");
  if(id) {
 	loginBtn.innerText = "로그아웃";
  } else {
 	loginBtn.innerText = "로그인";
 }
 });
+
